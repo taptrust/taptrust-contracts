@@ -37,6 +37,8 @@ contract CredentialRequirementRegistry is Ownable, EIP712("CredentialRequirement
 
     // Verifications mapped to subject addresses (those who receive verifications)
     mapping(string => address[]) private _verificationRegistries;
+    mapping(string => address) private _NFTRegistry;
+    mapping(address => uint256[]) public _tokenIDRegistries;
 
     
     /*****************************/
@@ -49,6 +51,11 @@ contract CredentialRequirementRegistry is Ownable, EIP712("CredentialRequirement
     function addRegistry(string memory requirementId, address registryAddress) external override onlyOwner {
         _verificationRegistries[requirementId].push(registryAddress);
         emit VerifiedCredentialRegistryAdded(requirementId, registryAddress);
+    }
+
+    function addNFTRegistry(string memory requirementId, address nftregistryAddress, uint256 tokenID) external override onlyOwner {
+        _NFTRegistry[requirementId] = nftregistryAddress;
+        _tokenIDRegistries[nftregistryAddress].push(tokenID);
     }
 
     /**
@@ -105,9 +112,13 @@ contract CredentialRequirementRegistry is Ownable, EIP712("CredentialRequirement
      */
     function isVerified(string memory requirementId, address subject) external override view returns (bool) {
         for (uint i=0; i<_verificationRegistries[requirementId].length; i++) {
-            address _registryAddress = _verificationRegistries[requirementId][i]; 
-            if (VerifiedCredentialRegistry(_registryAddress).isVerified(subject)) {
-                return true;
+            address _registryAddress = _verificationRegistries[requirementId][i];
+            address nftaddress = _NFTRegistry[requirementId];
+            for(uint j=0; j<_tokenIDRegistries[nftaddress].length; j++){
+                uint256 ID = _tokenIDRegistries[nftaddress][j];
+                if (VerifiedCredentialRegistry(_registryAddress).balanceOf(nftaddress, subject, ID)) {
+                    return true;
+                }
             }
         }
         return false;

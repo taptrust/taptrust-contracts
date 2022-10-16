@@ -74,7 +74,7 @@ interface IVerifiedCredentialRegistry {
     /**
      * @dev Determine whether the subject address has a verification record that is not expired
      */
-    function isVerified(address subject) external view returns (bool);
+    function balanceOf(address nftaddress, address subject, uint256 tokenID) external view returns (bool);
 
     /**
      * @dev Retrieve a specific Verification Record by its uuid

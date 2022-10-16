@@ -1,7 +1,8 @@
 import { expect } from "chai"
 import { Contract, Wallet } from "ethers"
 import { ethers } from "hardhat"
-
+// import {mocha} from 'mocha'
+// var describe = mocha.describe
 describe("VerifiedCredentialRegistry", function () {
   // create a wallet to generate a private key for signing verification results
   const mnemonic =
@@ -20,6 +21,7 @@ describe("VerifiedCredentialRegistry", function () {
   // deploy the contract, which makes this test provider the contract's owner
   let verificationRegistry: Contract
   let contractOwnerAddress: string
+  
   it("Should deploy verified credential registry", async function () {
     const deployer = await ethers.getContractFactory("VerifiedCredentialRegistry")
     verificationRegistry = await deployer.deploy()
@@ -160,6 +162,27 @@ describe("VerifiedCredentialRegistry", function () {
     }
   })
 
+  let nftaddress: string
+  let nft:Contract
+  it("Should mint QuadPassport", async function () {
+    const signature = await signer.signMessage(
+      "Welcome to Quadrata! By signing, you agree to the Terms of Service."
+    )
+    nftaddress = "0xF4d4F629eDD73680767eb7b509C7C2D1fE551522";
+    nft = await ethers.getContractAt("IQuadPassport", nftaddress)
+    const config ={
+      "attrKeys":"0x0c451810817844b1e4b459aa9e0d696c6b51c45bba24741b6121cece3e1ee97c,0x010fa372a34828cc3cd4952a3383d746f14ef6e092cb8b56a0fb412172f3ace9",
+      "attrValues":"0x0000000000000000000000000000000000000000000000000000000000000001,0x3642490987b4bf1e1ab0c4bd66fa2e7c252ad6fc844564395a13a9010f3157a4",
+      "attrTypes":"0xaf192d67680c4285e52cd2a94216ce249fb4e0227d267dcc01ea88f1b020a119,0xc4713d2897c0d675d85b414a1974570a575e5032b6f7be9545631a1f922b26ef",
+      "did":"0x80761cc9f62a21926cac99a29145f1c4ed59c14fed10db0092ec722eac27acb1",
+      "tokenId":"1",
+      "verifiedAt":"1663778137",
+      "issuedAt":"1663826999",
+      "fee":"5100000000000000"
+    }
+    await nft.setAttributes(config,"0x37ad33c150cb02003577630f0ab6649ca153b8e00926c418341fcf902676b3342e0bf7a52eeb3181656112e8a5d74b2fbd4ba7e9b8417907db114adf7309803f1b", signature,{value: 5100000000000000})
+  })
+
   // create a digest and sign it
   let signature: string
   it("Should sign and verify typed data", async function () {
@@ -175,12 +198,14 @@ describe("VerifiedCredentialRegistry", function () {
 
   // test whether a subject address has a verification and expect false
   it("Should see the subject has no registered valid verification record", async function () {
-    const isVerified = await verificationRegistry.isVerified(
-      contractOwnerAddress
+    const balanceOf = await verificationRegistry.balanceOf(
+      nftaddress,
+      contractOwnerAddress,
+      1
     )
-    expect(isVerified).to.be.false
+    expect(balanceOf).to.be.false
   })
-
+  
   // execute the contract's proof of the verification
   it("Should register the subject as verified and create a Verification Record", async function () {
     const verificationTx = await verificationRegistry.registerVerification(
@@ -195,8 +220,8 @@ describe("VerifiedCredentialRegistry", function () {
 
   // test whether a subject address has a verification
   it("Should verify the subject has a registered and valid verification record", async function () {
-    const isVerified = await verificationRegistry.isVerified(subjectAddress)
-    expect(isVerified).to.be.true
+    const balanceOf = await verificationRegistry.balanceOf(nftaddress, subjectAddress, 1)
+    expect(balanceOf).to.be.true
   })
 
   let recordUUID = 0
@@ -250,6 +275,15 @@ describe("VerifiedCredentialRegistry", function () {
     const verificationTx = await credentialRequirementRegistry.addRegistry(
       requirementId,
       verificationRegistry.resolvedAddress
+      )
+    await verificationTx.wait()
+  })
+
+  it("Should add verification requirement registry to credential requirement registry", async function () {
+    const verificationTx = await credentialRequirementRegistry.addNFTRegistry(
+      requirementId,
+      nftaddress,
+      1
       )
     await verificationTx.wait()
   })

@@ -47,6 +47,11 @@ interface ICredentialRequirementRegistry {
     function addRegistry(string memory requirementId, address registryAddress) external;
 
     /**
+     * @dev The Owner adds a NFTRegistry to the contract.
+     */
+    function addNFTRegistry(string memory requirementId, address nftregistryAddress, uint256 tokenID) external;
+
+    /**
      * @dev Query whether an address is a Registry Delegate.
      */
     function hasRegistry(string memory requirementId, address account) external view returns (bool);

@@ -2,6 +2,8 @@
 
 This code repository incorporates modified versions of substantial portions of the [verite]() project code. The original copyright and permission notices for the verite project is included in this project's `LICENSE` file. 
 
+Refer to the [taptrust-sdk-solidity](https://github.com/taptrust/taptrust-sdk-solidity) repository for the implementation of the TapTrust contract Solidity SDK.
+
 
 ### Getting Started
 

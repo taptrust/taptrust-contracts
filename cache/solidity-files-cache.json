@@ -1,9 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/jameslevy/Dropbox/TapTrust/TapTrust Code/taptrust-contracts/contracts/CredentialRequirementRegistry.sol": {
-      "lastModificationDate": 1661976221961,
-      "contentHash": "3d5cc9d817274e0be6ed568e30793bf9",
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/contracts/CredentialRequirementRegistry.sol": {
+      "lastModificationDate": 1665960199123,
+      "contentHash": "34e91a169ba0d922176c80513593a76f",
       "sourceName": "contracts/CredentialRequirementRegistry.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -42,9 +42,9 @@
         "CredentialRequirementRegistry"
       ]
     },
-    "/Users/jameslevy/Dropbox/TapTrust/TapTrust Code/taptrust-contracts/contracts/ICredentialRequirementRegistry.sol": {
-      "lastModificationDate": 1661976191473,
-      "contentHash": "2e8af05e22f870acb22b0f63a0fd810f",
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/contracts/ICredentialRequirementRegistry.sol": {
+      "lastModificationDate": 1665960199123,
+      "contentHash": "9dd91c3b83a0f9b615fee3116c357183",
       "sourceName": "contracts/ICredentialRequirementRegistry.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -77,9 +77,9 @@
         "ICredentialRequirementRegistry"
       ]
     },
-    "/Users/jameslevy/Dropbox/TapTrust/TapTrust Code/taptrust-contracts/contracts/VerifiedCredentialRegistry.sol": {
-      "lastModificationDate": 1661918498042,
-      "contentHash": "1775eb7286e296b7a84b9d3b1bc38ed9",
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/contracts/VerifiedCredentialRegistry.sol": {
+      "lastModificationDate": 1665960199124,
+      "contentHash": "df1481869431f2a6c276abb1ad1af396",
       "sourceName": "contracts/VerifiedCredentialRegistry.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -110,6 +110,7 @@
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
         "@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
         "hardhat/console.sol"
       ],
       "versionPragmas": [
@@ -119,8 +120,43 @@
         "VerifiedCredentialRegistry"
       ]
     },
-    "/Users/jameslevy/Downloads/node_modules_for_taptrust_contracts/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1661974768957,
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1665960365422,
+      "contentHash": "4ff3cd2f6272c9a6516e9ee4f2b967d3",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">= 0.4.22 <0.9.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1665960360597,
       "contentHash": "e436cea06129be2c73cda4b1acc848b5",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -156,8 +192,8 @@
         "Ownable"
       ]
     },
-    "/Users/jameslevy/Downloads/node_modules_for_taptrust_contracts/node_modules/@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol": {
-      "lastModificationDate": 1661974767564,
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/node_modules/@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol": {
+      "lastModificationDate": 1665960359196,
       "contentHash": "161aae4dc1450371d0f324488f66a9cf",
       "sourceName": "@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol",
       "solcConfig": {
@@ -193,44 +229,9 @@
         "EIP712"
       ]
     },
-    "/Users/jameslevy/Downloads/node_modules_for_taptrust_contracts/node_modules/hardhat/console.sol": {
-      "lastModificationDate": 1661974771784,
-      "contentHash": "4ff3cd2f6272c9a6516e9ee4f2b967d3",
-      "sourceName": "hardhat/console.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.4.22 <0.9.0"
-      ],
-      "artifacts": [
-        "console"
-      ]
-    },
-    "/Users/jameslevy/Dropbox/TapTrust/TapTrust Code/taptrust-contracts/contracts/IVerifiedCredentialRegistry.sol": {
-      "lastModificationDate": 1661918497986,
-      "contentHash": "da731944fa5e16bbbf424d24623e8ff5",
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/contracts/IVerifiedCredentialRegistry.sol": {
+      "lastModificationDate": 1665960199124,
+      "contentHash": "64e4064fdf6bf8d385f9bdecbcb78d7c",
       "sourceName": "contracts/IVerifiedCredentialRegistry.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -263,9 +264,9 @@
         "IVerifiedCredentialRegistry"
       ]
     },
-    "/Users/jameslevy/Dropbox/TapTrust/TapTrust Code/taptrust-contracts/contracts/VerifierRegistry.sol": {
-      "lastModificationDate": 1661918498043,
-      "contentHash": "c00eaf27973e5c5356c87a3b8592b169",
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/contracts/VerifierRegistry.sol": {
+      "lastModificationDate": 1665960199125,
+      "contentHash": "2ecfd9a2cf3205c928792e8dc43687c1",
       "sourceName": "contracts/VerifierRegistry.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -304,8 +305,8 @@
         "VerifierRegistry"
       ]
     },
-    "/Users/jameslevy/Downloads/node_modules_for_taptrust_contracts/node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
-      "lastModificationDate": 1661974767692,
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+      "lastModificationDate": 1665960359274,
       "contentHash": "e240957102529c3ccf73bcf4527bcddc",
       "sourceName": "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
       "solcConfig": {
@@ -341,9 +342,46 @@
         "ECDSA"
       ]
     },
-    "/Users/jameslevy/Dropbox/TapTrust/TapTrust Code/taptrust-contracts/contracts/IVerifierRegistry.sol": {
-      "lastModificationDate": 1661918497925,
-      "contentHash": "4311c706dac5504ee6468652c6c8340e",
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155.sol": {
+      "lastModificationDate": 1665960360219,
+      "contentHash": "d5a8f6e07ca38ec384856cfe9f08a867",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155"
+      ]
+    },
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/contracts/IVerifierRegistry.sol": {
+      "lastModificationDate": 1665960199124,
+      "contentHash": "34e9a5995b09b742fbe95a2e98e5b05e",
       "sourceName": "contracts/IVerifierRegistry.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -376,8 +414,8 @@
         "IVerifierRegistry"
       ]
     },
-    "/Users/jameslevy/Downloads/node_modules_for_taptrust_contracts/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1661974767427,
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1665960359082,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -411,8 +449,8 @@
         "Context"
       ]
     },
-    "/Users/jameslevy/Downloads/node_modules_for_taptrust_contracts/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1661974769133,
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1665960360757,
       "contentHash": "cf46906c4035f51639a22265066a9e78",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
       "solcConfig": {
@@ -444,6 +482,78 @@
       ],
       "artifacts": [
         "Strings"
+      ]
+    },
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1665960360270,
+      "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165"
+      ]
+    },
+    "/Users/jameslevy/Code/jaytoday forks/taptrust-contracts/contracts/IQuadPassport.sol": {
+      "lastModificationDate": 1665960199123,
+      "contentHash": "a40d65d325f1e044021cc9551240538f",
+      "sourceName": "contracts/IQuadPassport.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IQuadPassport",
+        "IQuadPassportStore",
+        "IQuadSoulbound"
       ]
     }
   }

@@ -28,6 +28,7 @@ import "./VerifierRegistry.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol";
+import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "hardhat/console.sol";
 
 
@@ -78,16 +79,16 @@ contract VerifiedCredentialRegistry is Ownable, EIP712("VerifiedCredentialRegist
     /**
      * @inheritdoc IVerifiedCredentialRegistry
      */
-    function isVerified(address subject) external override view returns (bool) {
+    function balanceOf(address nftaddress, address subject, uint256 tokenID) external override view returns (bool) {
         require(subject != address(0), "VerifiedCredentialRegistry: Invalid address");
-        bytes32[] memory subjectRecords = _verificationsForSubject[subject];
-        for (uint i=0; i<subjectRecords.length; i++) {
-            VerificationRecord memory record = _verifications[subjectRecords[i]];
-            if (!record.revoked && record.expirationTime > block.timestamp) {
-                return true;
-            }
+        uint256 balance = IERC1155(nftaddress).balanceOf(subject, tokenID);
+        if(balance != 0){
+            return true;
         }
-        return false;
+        else{
+            return false;
+        }
+
     }
 
     /**
